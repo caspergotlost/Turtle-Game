@@ -18,6 +18,6 @@ public class Script_Background_Manager : MonoBehaviour
     {
         transform.position += Vector3.left*Time.deltaTime*speed;
 
-        if(transform.position.x <= -19) transform.position = new Vector3(19f, 1f, 10f);
+        if(transform.position.x <= -38) transform.position = new Vector3(19f, 1f, 10f);
     }
 }

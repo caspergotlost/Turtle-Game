@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Enemy : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Enemy : MonoBehaviour
 
     public float speed;
     public int damage;
+
 
     public int pointVal;
 
@@ -25,7 +27,7 @@ public class Enemy : MonoBehaviour
 
     public void HurtPlayer(){
         Debug.Log("Ouch");
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Script_PlayerMovement>().damage(damage);
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<Script_GameManager>().points += -damage;
     }
 
     public void addPoints(){
@@ -36,5 +38,5 @@ public class Enemy : MonoBehaviour
         GameObject.FindGameObjectWithTag("GameController").GetComponent<Script_GameManager>().points += points;
     }
 
-
+ 
 }

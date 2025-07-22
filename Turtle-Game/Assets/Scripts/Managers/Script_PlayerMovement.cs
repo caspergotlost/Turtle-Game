@@ -18,7 +18,6 @@ public class Script_PlayerMovement : MonoBehaviour
 
     public float cooldown;
 
-    public int health;
 
     Vector3 pos;
     InputAction moveAction;
@@ -30,9 +29,8 @@ public class Script_PlayerMovement : MonoBehaviour
 
     Vector3 offset = new Vector3(.3f, 0, 0);
 
-    GameObject healthText;
-
     
+       
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
@@ -41,8 +39,8 @@ public class Script_PlayerMovement : MonoBehaviour
         animator = this.transform.GetChild(0).GetComponent<Animator>();
 
         timer = 0.0f;
-        healthText = GameObject.FindGameObjectWithTag("Health");
-        healthText.GetComponent<TextMeshProUGUI>().SetText("Health: " + health);
+        scoreText = GameObject.FindGameObjectWithTag("Score");
+        //healthText.GetComponent<TextMeshProUGUI>().SetText("Health: " + health);
 
     }
 
@@ -57,7 +55,7 @@ public class Script_PlayerMovement : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if(shootAction.IsPressed() && (cooldown <= timer) && !(GameObject.FindGameObjectsWithTag("Bullet").Length >= 3)){
+        if(shootAction.IsPressed() && (cooldown <= timer) && !(GameObject.FindGameObjectsWithTag("Bullet").Length >= 5)){
             newBullet = Instantiate(bullet);
             newBullet.transform.position = transform.position + offset;
             timer = 0.0f;
@@ -75,14 +73,7 @@ public class Script_PlayerMovement : MonoBehaviour
     }
 
 
-    public void damage(int damage){
-        health += -damage;
-        healthText.GetComponent<TextMeshProUGUI>().SetText("Health: " + health);
-        if(health <= 0){
-            animator.SetBool("is_Dead", true);
-            gameManager.GetComponent<Script_GameManager>().dead();
-        }
-    }
+    
 
 
 }
