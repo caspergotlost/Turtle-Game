@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     }
 
     public void HurtPlayer(){
-        Debug.Log("Ouch");
+        Debug.Log("Ouch"); 
         GameObject.FindGameObjectWithTag("GameController").GetComponent<Script_GameManager>().points += -damage;
     }
 
