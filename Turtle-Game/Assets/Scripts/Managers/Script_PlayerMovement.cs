@@ -11,6 +11,7 @@ public class Script_PlayerMovement : MonoBehaviour
 
     public GameObject bullet;
     public GameObject gameManager;
+    public GameObject scoreText;
 
     GameObject newBullet;
     public float moveFactorX;

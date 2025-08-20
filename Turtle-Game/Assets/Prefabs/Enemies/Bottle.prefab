@@ -148,6 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  damage: 1
   pointVal: 30
+  damageModifier: 0.5
   shards: {fileID: 1277946868485052140, guid: 860b9143ce25abd478c37dc586ceb6b9, type: 3}
